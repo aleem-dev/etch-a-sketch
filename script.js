@@ -35,10 +35,7 @@ const container = document.querySelector('.container');
 const div_btn = document.createElement('div');
 div_btn.classList.add('btnClass');
 
-// const btn_random = document.createElement('button');
-// btn_random.classList.add('btnRandom');
-// btn_random.innerText = 'Random';
-// div_btn.appendChild(btn_random);
+const btn_black = document.createElement('button');
 
 const btn_clear = document.createElement('button');
 btn_clear.classList.add('btnClear');
