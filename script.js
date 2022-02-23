@@ -21,8 +21,8 @@ function coloring(){
     var columns = document.querySelectorAll('.column');
     columns.forEach(column => column.addEventListener('mouseover', function l (){
         if(!click){
-            // column.setAttribute('style','background:black');
             column.classList.add('colorBlack');
+            //column.setAttribute('style','background:black');
         }
     }));
 }
@@ -35,12 +35,16 @@ const container = document.querySelector('.container');
 const div_btn = document.createElement('div');
 div_btn.classList.add('btnClass');
 
-const btn_black = document.createElement('button');
-
 const btn_clear = document.createElement('button');
 btn_clear.classList.add('btnClear');
 btn_clear.innerText = 'Clear';
 div_btn.appendChild(btn_clear);
+
+const btn_black = document.createElement('button');
+btn_black.classList.add('btnBlack');
+btn_black.innerText = 'Black';
+div_btn.appendChild(btn_black);
+
 
 const btn_erase = document.createElement('button');
 btn_erase.classList.add('btnErase');
@@ -70,11 +74,27 @@ btn_clear.addEventListener('click',function clearColor(){
     }
 });
 
+btn_black.addEventListener('click',function Blk(){
+    var btn_Erase = document.querySelector('.btnErase');
+    btn_Erase.removeEventListener('click',()=>{});
+    //document.querySelector('btnErase').removeEventListener('click',()=>{});
+    var columns = document.querySelectorAll('.column');
+    columns.forEach(column => column.addEventListener('mouseover', function colorBlk(){
+        // console.log('this: '+ this);
+        // console.log('column: '+column);
+        // console.log('target: '+EventTarget);
+        if(!click){
+            this.classList.add('colorBlack');
+        }
+    }))
+});
+
+
 btn_erase.addEventListener('click',function eraseColor(){
     var columns = document.querySelectorAll('.column');
-    columns.forEach(column => column.addEventListener('mouseover', function color (){
+    columns.forEach(column => column.addEventListener('mouseover', function colorwht (){
         if(!click){
-            column.classList.add('colorWhite');
+            column.classList.remove('colorBlack');
         }
     }));
 })
