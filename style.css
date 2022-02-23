@@ -8,7 +8,12 @@ body{
 }
 .container{
     flex:1;
-    border: fuchsia dotted 1px;
+    
+}
+.grid{
+    border:fuchsia dotted 1px;
+    border: coral double 3px;
+    padding: 10px;
 }
 .row{
     display: flex;
@@ -16,31 +21,27 @@ body{
 .column{
     transition: all .07s;
 }
-.colorBlack{
-  background-color: black;
-  border-color: #ffc600;
-  box-shadow: 0 0 0.1rem #ffc600;
-}
-.colorWhite{
-    background-color: white;
-    border-color: #ffc600;
-    box-shadow: 0 0 0.1rem #ffc600;
-}
 .btnClass{
     width: 480px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 20px 0px 20px 0px;
+    padding: 10px;
+    border: coral double 3px;
 }
 button{
     display: inline-block;
+    font-weight:bold;
+	font-family: 'Josefin Sans', sans-serif;
+    letter-spacing:0.1em;
+    color: blueviolet;
 }
 h1{
     font-size:60px;
 	font-weight:bold;
 	font-family: 'Josefin Sans', sans-serif;
-	padding:40px 0 80px;
-/* 	color: #353535; */
+	padding:40px 0 40px;
     color: coral;
 	letter-spacing:10px;
 	text-shadow: 4px 4px 0px #fff, 6px 6px 0px rgba(54, 54, 54, 0.5);

@@ -21,8 +21,11 @@ function coloring(){
     var columns = document.querySelectorAll('.column');
     columns.forEach(column => column.addEventListener('mouseover', function l (){
         if(!click){
-            column.classList.add('colorBlack');
+            //column.classList.add('colorBlack');
             //column.setAttribute('style','background:black');
+            //column.setAttribute('style','background-color:yellow');
+            column.style.background = 'black' ;
+            console.log(column.getAttribute('style'));
         }
     }));
 }
@@ -45,6 +48,16 @@ btn_black.classList.add('btnBlack');
 btn_black.innerText = 'Black';
 div_btn.appendChild(btn_black);
 
+const btn_gray = document.createElement('button');
+btn_gray.classList.add('btnGray');
+btn_gray.innerText = 'Gray';
+div_btn.appendChild(btn_gray);
+
+const btn_random = document.createElement('button');
+btn_random.classList.add('btnRandom');
+btn_random.innerText = 'Random';
+div_btn.appendChild(btn_random);
+
 
 const btn_erase = document.createElement('button');
 btn_erase.classList.add('btnErase');
@@ -55,7 +68,7 @@ container.appendChild(div_btn);
 
 const div_container = document.createElement('div');
 div_container.setAttribute('style','width:480px; height:480px');
-div_container.classList.add('container');
+div_container.classList.add('grid');
 container.appendChild(div_container);
 createGrid(gridSize);
 coloring();
@@ -75,16 +88,28 @@ btn_clear.addEventListener('click',function clearColor(){
 });
 
 btn_black.addEventListener('click',function Blk(){
-    var btn_Erase = document.querySelector('.btnErase');
-    btn_Erase.removeEventListener('click',()=>{});
+    // var btn_Erase = document.querySelector('.btnErase');
+    // btn_Erase.removeEventListener('click',()=>{});
     //document.querySelector('btnErase').removeEventListener('click',()=>{});
+    // let op = 0.1;
     var columns = document.querySelectorAll('.column');
     columns.forEach(column => column.addEventListener('mouseover', function colorBlk(){
-        // console.log('this: '+ this);
-        // console.log('column: '+column);
-        // console.log('target: '+EventTarget);
         if(!click){
-            this.classList.add('colorBlack');
+            column.style.background = 'black';
+            // column.style.opacity = op;
+            // (op<=0.9)?op+=0.1:op=0.1;
+        }
+    }))
+});
+
+btn_gray.addEventListener('click', function gry(){
+    let op = 0.1;
+    var columns = document.querySelectorAll('.column');
+    columns.forEach(column => column.addEventListener('mouseover', function colorGry(){
+        if(!click){
+            column.style.background = 'black';
+            column.style.opacity = op;
+            (op<=0.9)?op+=0.1:op=0.1;
         }
     }))
 });
@@ -94,21 +119,22 @@ btn_erase.addEventListener('click',function eraseColor(){
     var columns = document.querySelectorAll('.column');
     columns.forEach(column => column.addEventListener('mouseover', function colorwht (){
         if(!click){
-            column.classList.remove('colorBlack');
+            //column.classList.remove('colorBlack');
+            column.style.removeProperty('background');
         }
     }));
 })
 
 
 
-// btn_random.addEventListener('click',function randomColor(){
-//     var columns = document.querySelectorAll('.column');
-//     columns.forEach(column => column.addEventListener('mouseover', function color (){
-//         if(!click){
-//             // column.classList.add('colorWhite');
-//             column.setAttribute('style','background:pink');
-//         }
-//     }));
-// })
+btn_random.addEventListener('click',function randomColor(){
+    var columns = document.querySelectorAll('.column');
+    columns.forEach(column => column.addEventListener('mouseover', function color (){
+        if(!click){
+            const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            column.style.background = '#'+randomColor;
+        }
+    }));
+})
 
 div_container.addEventListener('click', () => {click=!click;});
