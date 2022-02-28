@@ -25,7 +25,7 @@ function coloring(){
             //column.setAttribute('style','background:black');
             //column.setAttribute('style','background-color:yellow');
             column.style.background = 'black' ;
-            console.log(column.getAttribute('style'));
+            //console.log(column.getAttribute('style'));
         }
     }));
 }
@@ -85,22 +85,21 @@ btn_clear.addEventListener('click',function clearColor(){
     else{
         alert('please enter between 1 to 100');
     }
-});
+})
+
+// refecture to resolve gray coloring even after cliking black button
+// added opacity = 1 to resolve the bug.
 
 btn_black.addEventListener('click',function Blk(){
-    // var btn_Erase = document.querySelector('.btnErase');
-    // btn_Erase.removeEventListener('click',()=>{});
-    //document.querySelector('btnErase').removeEventListener('click',()=>{});
-    // let op = 0.1;
     var columns = document.querySelectorAll('.column');
     columns.forEach(column => column.addEventListener('mouseover', function colorBlk(){
         if(!click){
             column.style.background = 'black';
-            // column.style.opacity = op;
-            // (op<=0.9)?op+=0.1:op=0.1;
+            column.style.opacity = 1;
         }
-    }))
-});
+    }));
+})
+
 
 btn_gray.addEventListener('click', function gry(){
     let op = 0.1;
@@ -111,8 +110,8 @@ btn_gray.addEventListener('click', function gry(){
             column.style.opacity = op;
             (op<=0.9)?op+=0.1:op=0.1;
         }
-    }))
-});
+    }));
+})
 
 
 btn_erase.addEventListener('click',function eraseColor(){
